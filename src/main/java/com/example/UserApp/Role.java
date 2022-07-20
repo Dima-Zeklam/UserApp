@@ -3,11 +3,9 @@ package com.example.UserApp;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity  @Data
 @NoArgsConstructor
@@ -15,7 +13,11 @@ import javax.persistence.Id;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Long;
+    private Long id;
     private String name;
 
+    public Role(String name) {
+        this.name = name;
+    }
 }
+//    VALUES (1,'dima', 'dima', '123', 'Role_User');
