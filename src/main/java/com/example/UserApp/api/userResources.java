@@ -55,3 +55,33 @@ class RoleToUserForm{
     private String username;
     private String roleName;
 }
+//[
+//    {
+//        "id": 1,
+//        "name": "dima",
+//        "username": "dima",
+//        "password": "123",
+//        "roles": [
+//            {
+//                "id": 1,
+//                "name": "Role_User"
+//            },
+//            {
+//                "id": 2,
+//                "name": "Role_Manager"
+//            }
+//        ]
+//    },
+//    {
+//        "id": 2,
+//        "name": "john",
+//        "username": "john",
+//        "password": "123",
+//        "roles": [
+//            {
+//                "id": 1,
+//                "name": "Role_User"
+//            }
+//        ]
+//    }
+//]

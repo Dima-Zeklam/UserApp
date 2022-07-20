@@ -37,27 +37,27 @@ public class UserAppApplication {
 
 
 
-	@Component
-	class DemoCommandLineRunner implements CommandLineRunner{
-
-		@Autowired
-		UserService userService;
-
-
-		@Override
-		public void run(String... args) throws Exception {
-			userService.saveRole(new Role(null,"Role_User"));
-			userService.saveRole(new Role(null,"Role_Manager"));
-			userService.saveRole(new Role(null,"Role_Admin"));
-
-			userService.saveUser(new Users(null,"dima","dima","123",new ArrayList<>()));
-			userService.saveUser(new Users(null,"john","john","123",new ArrayList<>()));
-
-			userService.addRoleToUser("dima","Role_User");
-			userService.addRoleToUser("dima","Role_Manager");
-			userService.addRoleToUser("john","Role_User");
-			System.out.println("the users::::::::::" + userService.getUsers());
-		}
-	}
+//	@Component
+//	class DemoCommandLineRunner implements CommandLineRunner{
+//
+//		@Autowired
+//		UserService userService;
+//
+//
+//		@Override
+//		public void run(String... args) throws Exception {
+//			userService.saveRole(new Role(null,"Role_User"));
+//			userService.saveRole(new Role(null,"Role_Manager"));
+//			userService.saveRole(new Role(null,"Role_Admin"));
+//
+//			userService.saveUser(new Users(null,"dima","dima","123",new ArrayList<>()));
+//			userService.saveUser(new Users(null,"john","john","123",new ArrayList<>()));
+//
+//			userService.addRoleToUser("dima","Role_User");
+//			userService.addRoleToUser("dima","Role_Manager");
+//			userService.addRoleToUser("john","Role_User");
+//			System.out.println("the users::::::::::" + userService.getUsers());
+//		}
+//	}
 
 }
