@@ -16,15 +16,28 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/")
-    public ResponseEntity<String> login() {
-        System.out.println("the users Login::::::::::");
+    public ResponseEntity<String> Homepage() {
+        System.out.println("home page is appear successfully ");
 
-        return ResponseEntity.ok().body("well doooone");
+        return ResponseEntity.ok().body("Home Page ... well doooone");
     }
+    @GetMapping("/profile")
+    public ResponseEntity<String> profile() {
+        System.out.println("home page is appear successfully ");
+
+        return ResponseEntity.ok().body("Home Page ... well doooone");
+    }
+//    @GetMapping("/login")
+//    public ResponseEntity<String> login() {
+//        System.out.println("login in Successfully >>>>> ");
+//
+//        return ResponseEntity.ok().body("OK");
+//    }
     @GetMapping("/error")
     public ResponseEntity<String> error() {
         System.out.println("cant access..........XXXX");
 
         return ResponseEntity.ok().body("bad login");
     }
+
 }

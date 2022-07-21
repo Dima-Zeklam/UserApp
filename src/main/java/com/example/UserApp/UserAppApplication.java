@@ -1,8 +1,10 @@
 package com.example.UserApp;
 
+import com.example.UserApp.Filter.UserAuthenticationFilter;
 import com.example.UserApp.Service.UserService;
 import com.example.UserApp.model.Role;
 import com.example.UserApp.model.Users;
+import com.example.UserApp.security.SecurityConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -52,6 +54,10 @@ public class UserAppApplication {
 
 		@Autowired
 		UserService userService;
+		@Autowired
+		SecurityConfig securityConfig;
+
+		UserAuthenticationFilter userAuthenticationFilter;
 //
 //
 		@Override
@@ -62,17 +68,19 @@ public class UserAppApplication {
 //			System.out.println("Password is         : " + password);
 //			System.out.println("Encoded Password is : " + encodedPassword);
 
-//			userService.saveRole(new Role(null,"Role_User"));
-//			userService.saveRole(new Role(null,"Role_Manager"));
-//			userService.saveRole(new Role(null,"Role_Admin"));
+			userService.saveRole(new Role(null,"Role_User"));
+			userService.saveRole(new Role(null,"Role_Manager"));
+			userService.saveRole(new Role(null,"Role_Admin"));
+
+			userService.saveUser(new Users(null,"dima","dima","123",new ArrayList<>()));
+			userService.saveUser(new Users(null,"john","john","123",new ArrayList<>()));
 //
-//			userService.saveUser(new Users(null,"dima","dima","123",new ArrayList<>()));
-//			userService.saveUser(new Users(null,"john","john","123",new ArrayList<>()));
-////
-//			userService.addRoleToUser("dima","Role_User");
-//			userService.addRoleToUser("dima","Role_Manager");
-//			userService.addRoleToUser("john","Role_User");
+			userService.addRoleToUser("dima","Role_User");
+			userService.addRoleToUser("dima","Role_Manager");
+			userService.addRoleToUser("john","Role_User");
 			System.out.println("the users::::::::::" + userService.getUsers());
+
+			System.out.println("new UserAuthenticationFilter(securityConfig.authenticationManagerBean()) >>>>>" + securityConfig.authenticationManagerBean());
 
 		}
 	}
