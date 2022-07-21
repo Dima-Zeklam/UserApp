@@ -21,13 +21,14 @@ import java.util.Collection;
 import java.util.List;
 
 @Service @RequiredArgsConstructor @Transactional @Slf4j
-public class UserServiceImp implements UserService, UserDetailsService {
+public class UserServiceImp implements UserService ,UserDetailsService {
     @Autowired
     UserRepository userRepository;
 
     @Autowired
     RoleRepository roleRepository;
 
+    @Autowired
     private PasswordEncoder passwordEncoder;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

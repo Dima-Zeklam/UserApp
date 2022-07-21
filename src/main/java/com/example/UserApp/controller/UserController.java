@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/start")
+@RequestMapping
 @RequiredArgsConstructor
 public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/profile")
+    @GetMapping("/")
     public ResponseEntity<String> login() {
         System.out.println("the users Login::::::::::");
 
