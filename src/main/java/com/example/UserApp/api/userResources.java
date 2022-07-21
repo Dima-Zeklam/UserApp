@@ -1,8 +1,8 @@
 package com.example.UserApp.api;
 
-import com.example.UserApp.Role;
+import com.example.UserApp.model.Role;
 import com.example.UserApp.Service.UserService;
-import com.example.UserApp.Users;
+import com.example.UserApp.model.Users;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

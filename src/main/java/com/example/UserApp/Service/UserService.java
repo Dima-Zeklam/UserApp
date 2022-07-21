@@ -1,9 +1,8 @@
 package com.example.UserApp.Service;
 
-import com.example.UserApp.Role;
-import com.example.UserApp.Users;
+import com.example.UserApp.model.Role;
+import com.example.UserApp.model.Users;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface UserService {

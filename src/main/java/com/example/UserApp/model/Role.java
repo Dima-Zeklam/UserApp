@@ -1,4 +1,4 @@
-package com.example.UserApp;
+package com.example.UserApp.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
