@@ -1,6 +1,6 @@
 package com.example.UserApp.repo;
 
-import com.example.UserApp.Role;
+import com.example.UserApp.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RoleRepository extends JpaRepository<Role,Long> {

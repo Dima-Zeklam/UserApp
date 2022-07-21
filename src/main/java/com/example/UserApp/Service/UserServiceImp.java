@@ -1,7 +1,7 @@
 package com.example.UserApp.Service;
 
-import com.example.UserApp.Role;
-import com.example.UserApp.Users;
+import com.example.UserApp.model.Role;
+import com.example.UserApp.model.Users;
 import com.example.UserApp.repo.RoleRepository;
 import com.example.UserApp.repo.UserRepository;
 
@@ -48,7 +48,7 @@ public class UserServiceImp implements UserService, UserDetailsService {
     @Override
     public Users saveUser(Users user) {
        log.info("save user  {} into database",user);
-//       user.setPassword(passwordEncoder.encode(user.getPassword()));
+       user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
 
