@@ -21,6 +21,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.http.HttpMethod.POST;
+import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
 //
 @Configuration @EnableWebSecurity @NoArgsConstructor
@@ -43,11 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder.bCryptPasswordEncoder());
     }
 
-    @Bean
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception{
-        return super.authenticationManagerBean();
-    }
+
 
 //    @Override
 //    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -74,16 +71,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         UserAuthenticationFilter userAuthenticationFilter = new UserAuthenticationFilter(authenticationManagerBean());
         userAuthenticationFilter.setFilterProcessesUrl("/api/login");
-        http.cors().and().csrf().disable()
+        http.csrf().disable();
 //                .formLogin().and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        http.sessionManagement().sessionCreationPolicy(STATELESS);
 //        http.authorizeRequests().antMatchers("**").permitAll();
-        http.authorizeRequests().antMatchers(POST,"/api/login/**").permitAll();
+        http.authorizeRequests().antMatchers("/api/login/**","/api/token/refresh/**").permitAll();
         http.authorizeRequests().antMatchers(GET,"/api/users/**").hasAnyAuthority("ROLE_USER");
-        http.authorizeRequests().antMatchers(POST,"/api/user/save/**").hasAnyAuthority("ROLE_ADMIN").anyRequest().authenticated();
+        http.authorizeRequests().antMatchers(POST,"/api/user/save/**").hasAnyAuthority("ROLE_ADMIN");
         http.addFilter(userAuthenticationFilter);
         http.addFilterBefore(new UserAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
 
+    }
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception{
+        return super.authenticationManagerBean();
     }
 
 //                and().authorizeRequests().antMatchers("**").permitAll().
