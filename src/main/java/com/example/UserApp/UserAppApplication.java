@@ -68,16 +68,15 @@ public class UserAppApplication {
 //			System.out.println("Password is         : " + password);
 //			System.out.println("Encoded Password is : " + encodedPassword);
 
-			userService.saveRole(new Role(null,"Role_User"));
-			userService.saveRole(new Role(null,"Role_Manager"));
-			userService.saveRole(new Role(null,"Role_Admin"));
+			userService.saveRole(new Role(null,"ROLE_USER"));
+			userService.saveRole(new Role(null,"ROLE_ADMIN"));
 
 			userService.saveUser(new Users(null,"dima","dima","123",new ArrayList<>()));
 			userService.saveUser(new Users(null,"john","john","123",new ArrayList<>()));
 //
-			userService.addRoleToUser("dima","Role_User");
-			userService.addRoleToUser("dima","Role_Manager");
-			userService.addRoleToUser("john","Role_User");
+			userService.addRoleToUser("dima","ROLE_USER");
+//			userService.addRoleToUser("dima","ROLE_ADMIN");
+			userService.addRoleToUser("john","ROLE_ADMIN");
 			System.out.println("the users::::::::::" + userService.getUsers());
 
 			System.out.println("new UserAuthenticationFilter(securityConfig.authenticationManagerBean()) >>>>>" + securityConfig.authenticationManagerBean());
