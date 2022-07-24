@@ -18,21 +18,9 @@ public class UserController {
     @GetMapping("/")
     public ResponseEntity<String> Homepage() {
         System.out.println("home page is appear successfully ");
-
-        return ResponseEntity.ok().body("Home Page ... well doooone");
+        return ResponseEntity.ok().body("Home Page");
     }
-    @GetMapping("/profile")
-    public ResponseEntity<String> profile() {
-        System.out.println("home page is appear successfully ");
 
-        return ResponseEntity.ok().body("Home Page ... well doooone");
-    }
-//    @GetMapping("/login")
-//    public ResponseEntity<String> login() {
-//        System.out.println("login in Successfully >>>>> ");
-//
-//        return ResponseEntity.ok().body("OK");
-//    }
     @GetMapping("/error")
     public ResponseEntity<String> error() {
         System.out.println("cant access..........XXXX");

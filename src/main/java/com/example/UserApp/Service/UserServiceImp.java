@@ -4,7 +4,6 @@ import com.example.UserApp.model.Role;
 import com.example.UserApp.model.Users;
 import com.example.UserApp.repo.RoleRepository;
 import com.example.UserApp.repo.UserRepository;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -61,7 +59,7 @@ public class UserServiceImp implements UserService ,UserDetailsService {
 
     @Override
     public void addRoleToUser(String username, String RoleName) {
-        log.info("set role {] for the user  {} ",RoleName ,username);
+        log.info("set role {} for the user {} ",RoleName ,username);
        Users user= userRepository.findByUsername(username);
        Role role = roleRepository.findByName(RoleName);
        user.getRoles().add(role);
